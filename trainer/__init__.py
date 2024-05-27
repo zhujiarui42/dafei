@@ -5,3 +5,4 @@ from trainer.seg_trainer import train_dice as SegTrainer
 from trainer.regis_trainer import Trainer as RegisTrainer
 from trainer.mtfs_trainer import MTFSTrainer
 from trainer.self_trainer import SelfTrainer
+from trainer.vit_trainer import VitTrainer
