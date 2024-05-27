@@ -6,3 +6,4 @@ from models.MultitaskModels.Selfnet import SelfNet
 from models.Registration.voxelmorph import synthmorph
 from models.Segmentation.HyperDensenet import HyperDenseNet
 from models.module import SpatialTransformer
+from models.transformer.vit_nano import AutoencoderViT,MaskedAutoencoderViT
