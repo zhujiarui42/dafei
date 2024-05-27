@@ -83,6 +83,8 @@ if __name__ == "__main__":
         model = SelfNet()
     elif args.model == 'mtfsnet':
         model = MTFSNet()
+    elif args.model == 'vit':
+        model = AutoencoderViT()
     else:
         raise ValueError('wrong model!')
     model = model.cuda()
@@ -116,6 +118,7 @@ if __name__ == "__main__":
         criterion = GradNormLoss()
     elif args.loss_fn == 'CFP':
         criterion = CFPLoss().cuda()
+
     # crate trainer
     # =============================
     if args.trainer == 'gan':
@@ -144,6 +147,10 @@ if __name__ == "__main__":
                             lr_scheduler=lr_scheduler)
     elif args.trainer == 'mtfsnet':
         trainer = MTFSTrainer(args=args, train_loader=train_loader, test_loader=test_loader,
+                            model=model, optim=optim, criterion=criterion, scorer=scorer,
+                            lr_scheduler=lr_scheduler)
+    elif args.trainer == 'vit_trainer':
+        trainer = VitTrainer(args=args, train_loader=train_loader, test_loader=test_loader,
                             model=model, optim=optim, criterion=criterion, scorer=scorer,
                             lr_scheduler=lr_scheduler)
     else:
